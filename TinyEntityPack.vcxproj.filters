@@ -42,6 +42,9 @@
     <CustomBuild Include="RandomTrigger.es">
       <Filter>Class Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="TargetSwapper.es">
+      <Filter>Class Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StdH\StdH.h">
@@ -116,6 +119,12 @@
     <ClInclude Include="DreamyJSON\DreamyStructures\DataTemplates.h">
       <Filter>Header Files\Dreamy Structures</Filter>
     </ClInclude>
+    <ClInclude Include="TargetSwapper.h">
+      <Filter>Header Files\Entity headers</Filter>
+    </ClInclude>
+    <ClInclude Include="TargetSwapper_tables.h">
+      <Filter>Header Files\Entity headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Common\Common.cpp">
@@ -153,6 +162,9 @@
     </ClCompile>
     <ClCompile Include="DreamyJSON\Values\ConfigValue.cpp">
       <Filter>Source Files\Dreamy JSON sources</Filter>
+    </ClCompile>
+    <ClCompile Include="TargetSwapper.cpp">
+      <Filter>Source Files\Entity sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

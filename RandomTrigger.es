@@ -78,8 +78,8 @@ properties:
  80 enum EEventType m_eEventAll "Global Event Type" = EET_IGNORE,
 
 components:
-  1 model   MODEL_TRIGGER   "Models\\Editor\\Trigger.mdl",
-  2 texture TEXTURE_TRIGGER "Models\\Editor\\Camera.tex",
+  1 model   MODEL_ENTITY   "Cecil\\TinyEntityPack\\Models\\Entity.mdl",
+  2 texture TEXTURE_ENTITY "Cecil\\TinyEntityPack\\Models\\RandomTrigger.tex",
 
 functions:
   // Entity description
@@ -141,7 +141,7 @@ functions:
       // add amount of passed ticks
       INDEX iRndFactor = (IRnd() + _pTimer->CurrentTick() / _pTimer->TickQuantum);
       // random target number
-      INDEX iRndTarget = aiTargets[IRnd() % ctTargets];
+      INDEX iRndTarget = aiTargets[iRndFactor % ctTargets];
 
       CEntity *penTarget = TriggerTarget(iRndTarget);
       EEventType eEvent = (&m_eEvent1)[iRndTarget];
@@ -239,8 +239,8 @@ procedures:
     SetPhysicsFlags(EPF_MODEL_IMMATERIAL);
     SetCollisionFlags(ECF_IMMATERIAL);
 
-    SetModel(MODEL_TRIGGER);
-    SetModelMainTexture(TEXTURE_TRIGGER);
+    SetModel(MODEL_ENTITY);
+    SetModelMainTexture(TEXTURE_ENTITY);
 
     autowait(0.1f);
 

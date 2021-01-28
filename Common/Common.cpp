@@ -33,8 +33,6 @@ void SendToTarget(CEntity *penSendEvent, EEventType eEventType, CEntity *penCaus
   if (penSendEvent == NULL) {
     return;
   }
-
-  CPrintF("Sending %d to %s\n", eEventType, penSendEvent->GetName());
   
   switch (eEventType) {
     // send causer with Trigger event
