@@ -84,3 +84,43 @@ void SendInRange(CEntity *penSource, EEventType eEventType, const FLOATaabbox3D 
     default: break;
   }
 };
+
+CEntity *FixupCausedToPlayer(CEntity *penThis, CEntity *penCaused, BOOL bWarning) {
+  if (penCaused != NULL && IsOfClass(penCaused, "Player")) {
+    return penCaused;
+  }
+
+  if (bWarning && (_pShell->GetINDEX("ent_bReportBrokenChains;") || GetSP()->sp_bQuickTest)) {
+    CPrintF(TRANS("WARNING: Triggering chain broken, entity: %s-%s(%s)\n"), 
+      (const char*)penThis->GetName(),
+      (const char*)penThis->GetDescription(),
+      (const char*)penThis->GetClass()->GetName());
+  }
+
+  INDEX ctPlayers = penThis->GetMaxPlayers();
+  if (ctPlayers == 0) {
+    return NULL;
+  }
+
+  CEntity *penClosestPlayer = NULL;
+  FLOAT fClosestPlayer = UpperLimit(0.0f);
+
+  // for all players
+  for (INDEX iPlayer = 0; iPlayer < penThis->GetMaxPlayers(); iPlayer++) {
+    CEntity *penPlayer = penThis->GetPlayerEntity(iPlayer);
+
+    // if player exists
+    if (penPlayer != NULL) {
+      // calculate distance to player
+      FLOAT fDistance = (penPlayer->GetPlacement().pl_PositionVector - penThis->GetPlacement().pl_PositionVector).Length();
+
+      // update if closer
+      if (fDistance < fClosestPlayer) {
+        fClosestPlayer = fDistance;
+        penClosestPlayer = penPlayer;
+      }
+    }
+  }
+
+  return penClosestPlayer;
+};

@@ -26,7 +26,7 @@ enum ESwapType {
 
 class export CCecilTargetSwapper : CRationalEntity {
 name      "CecilTargetSwapper";
-thumbnail "Thumbnails\\Trigger.tbn";
+thumbnail "Cecil\\TinyEntityPack\\Thumbnails\\TargetSwapper.tbn";
 features  "HasName", "IsTargetable", "IsImportant";
 
 properties:
@@ -60,6 +60,7 @@ properties:
 
  40 enum ESwapType m_eSwapType "Swap Type" = SWT_RANDOM,
  41 INDEX m_iCurrentTarget = 0,
+ 42 INDEX m_iCallerTarget "Caller Target Slot" = -1,
 
 components:
   1 model   MODEL_ENTITY   "Cecil\\TinyEntityPack\\Models\\Entity.mdl",
@@ -170,6 +171,11 @@ procedures:
       // swap targets
       on (ETrigger eTrigger) : {
         if (m_bActive) {
+          // put caller into some slot
+          if (m_iCallerTarget > 0 && m_iCallerTarget <= 20) {
+            (&m_penTarget1)[m_iCallerTarget-1] = eTrigger.penCaused;
+          }
+
           SwapTarget();
         }
         resume;

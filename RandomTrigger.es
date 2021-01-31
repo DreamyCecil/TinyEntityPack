@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 class export CCecilRandomTrigger : CRationalEntity {
 name      "CecilRandomTrigger";
-thumbnail "Thumbnails\\Trigger.tbn";
+thumbnail "Cecil\\TinyEntityPack\\Thumbnails\\RandomTrigger.tbn";
 features  "HasName", "IsTargetable", "IsImportant";
 
 properties:

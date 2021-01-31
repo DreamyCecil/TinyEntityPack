@@ -198,6 +198,8 @@ ecc TinyEntityPack/%(Filename).es </Command>
     <ClInclude Include="DreamyJSON\Values\ConfigBlock.h" />
     <ClInclude Include="DreamyJSON\Values\ConfigElement.h" />
     <ClInclude Include="DreamyJSON\Values\ConfigValue.h" />
+    <ClInclude Include="EntityChecker.h" />
+    <ClInclude Include="EntityChecker_tables.h" />
     <ClInclude Include="RandomTrigger.h" />
     <ClInclude Include="RandomTrigger_tables.h" />
     <ClInclude Include="StdH\StdH.h" />
@@ -228,6 +230,7 @@ ecc TinyEntityPack/%(Filename).es </Command>
     <ClCompile Include="DreamyJSON\Values\ConfigValue.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="EntityChecker.cpp" />
     <ClCompile Include="RandomTrigger.cpp" />
     <ClCompile Include="StdH\StdH.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -264,6 +267,17 @@ ecc TinyEntityPack/%(Filename).es </Command>
 ecc TinyEntityPack/%(Filename).es </Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename).cpp;%(Outputs)</Outputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">TinyEntityPack/%(Filename).es</Message>
+    </CustomBuild>
+    <CustomBuild Include="EntityChecker.es">
+      <FileType>Document</FileType>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename).cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename).cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">TinyEntityPack/%(Filename).es</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">TinyEntityPack/%(Filename).es</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cd $(SolutionDir)../
+ecc TinyEntityPack/%(Filename).es </Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cd $(SolutionDir)../
+ecc TinyEntityPack/%(Filename).es </Command>
     </CustomBuild>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
