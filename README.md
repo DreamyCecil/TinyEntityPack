@@ -1,5 +1,5 @@
 # Tiny Entity Pack
-This is a small library of custom entities for Serious Sam v1.07 based on Custom Entities Library (and is built within it as another entity pack) - https://github.com/DreamyCecil/SeriousSam_CustomEntitiesLib
+This is a small library of custom entities for Serious Sam v1.07 based on [Custom Entities Library](https://github.com/DreamyCecil/SeriousSam_CustomEntitiesLib) (and is built within it as another entity pack).
 
 This SDK contains only the Tiny Entity Pack sources and the project files were created for Visual Studio 2013 Professional edition.
 
